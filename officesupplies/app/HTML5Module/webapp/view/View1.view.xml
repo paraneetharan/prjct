@@ -1,0 +1,315 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+        xmlns="sap.m" xmlns:f="sap.f"
+        	xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified" 
+    xmlns:tnt="sap.tnt" 
+        controllerName="ns.HTML5Module.controller.View1" 
+        displayBlock="true"
+        class="side-navigation-demo"
+            xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+            xmlns:html="http://www.w3.org/1999/xhtml">
+                <tnt:ToolHeader>
+        <Button icon="sap-icon://menu2"
+        press=".onCollapseExpandPress" />
+        <Image src="test-resources/sap/tnt/images/SAP_Logo.png" />
+        <Text text="Name of the Tool" wrapping="false" />
+        <ToolbarSpacer />
+        <Button icon="sap-icon://search" type="Transparent" />
+        
+    </tnt:ToolHeader>
+
+    <SplitApp
+        id="SplitAppDemo"
+        initialDetail="detail"
+        initialMaster="master"
+        orientationChange=".onOrientationChange">
+        <detailPages>
+                               
+        <Page id="empty"
+          backgroundDesign= "Solid"
+                class="sapUiStdPage"
+                title="Configuration Page">
+                <Table 
+        inset="false"
+        items="{
+            path: '',
+            sorter: {
+                path: 'Name'
+            }
+        }">
+        <headerToolbar>
+            <Toolbar>
+                <Title text="Products" level="H2"/>
+            </Toolbar>
+        </headerToolbar>
+        <columns>
+            <Column
+                width="12em">
+                <Text text="Name" />
+            </Column>
+            <Column>
+                <Text text="Id" />
+            </Column>
+            <Column
+                minScreenWidth="Tablet"
+                demandPopin="true">
+                <Text text="Supplier" />
+            </Column>
+            <Column
+                minScreenWidth="Tablet"
+                demandPopin="true"
+                hAlign="End">
+                <Text text="Category" />
+            </Column>
+            <Column
+                minScreenWidth="Tablet"
+                demandPopin="true"
+                hAlign="End">
+                <Text text="Picture" />
+            </Column>
+        </columns>
+        <ColumnListItem>
+            <Link
+                text="{Name}"
+                href="{ProductPicUrl}" />
+            <ObjectIdentifier
+                title="{ProductId}"
+                titleActive = "true"
+                titlePress="handleObjectIdentifierPress" />
+            <Link
+                text="{SupplierName}"
+                subtle="true"
+                press="handleLinkPress"/>
+            <Link
+                text="{Category}"
+                subtle="true"
+                press="handleLinkPress" />
+            <Link
+                text="picture"
+                subtle="true"
+                href="{ProductPicUrl}" />
+        </ColumnListItem>
+    </Table>
+    
+                </Page>
+
+            <Page
+                id="detail"
+                title="Detail 1"
+                backgroundDesign= "Solid"
+                class="sapUiStdPage">
+                
+              <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+              header="Cumulative Totals" subheader="Expenses" press="onPressNavToDetail1">
+        <TileContent unit="Unit" footer="Footer Text">
+            <NumericContent value="1762" icon="sap-icon://line-charts" withMargin="false" />
+        </TileContent>
+    </GenericTile>
+    	
+        <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Cumulative Totals" subheader="Expenses" press="press">
+		<TileContent unit="Unit" footer="Footer Text">
+			<NumericContent value="1762" icon="sap-icon://line-charts" withMargin="false" />
+		</TileContent>
+	</GenericTile>
+
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Cumulative Totals" subheader="Expenses" press="press">
+		<TileContent unit="Unit" footer="Footer Text">
+			<NumericContent value="12" withMargin="false" />
+		</TileContent>
+	</GenericTile>
+    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Cumulative Totals" subheader="Expenses" press="press">
+		<TileContent unit="Unit" footer="Footer Text">
+			<NumericContent value="12" withMargin="false" />
+		</TileContent>
+	</GenericTile>
+            </Page>
+            <Page
+                id="detailDetail"
+                title="Detail Detail"
+                class="sapUiStdPage"
+                backgroundDesign= "Solid"
+                showNavButton="true"
+                navButtonText="Back"
+                navButtonPress=".onPressDetailBack">
+                <VBox class="sapUiSmallMargin">
+                    <Table 
+        inset="false"
+        items="{
+            path: '/ProductCollection',
+            sorter: {
+                path: 'Name'
+            }
+        }">
+        <headerToolbar>
+            <Toolbar>
+                <Title text="Products" level="H2"/>
+            </Toolbar>
+        </headerToolbar>
+        <columns>
+            <Column
+                width="12em">
+                <Text text="Name" />
+            </Column>
+            <Column>
+                <Text text="Id" />
+            </Column>
+            <Column
+                minScreenWidth="Tablet"
+                demandPopin="true">
+                <Text text="Supplier" />
+            </Column>
+            <Column
+                minScreenWidth="Tablet"
+                demandPopin="true"
+                hAlign="End">
+                <Text text="Category" />
+            </Column>
+            <Column
+                minScreenWidth="Tablet"
+                demandPopin="true"
+                hAlign="End">
+                <Text text="Picture" />
+            </Column>
+        </columns>
+        <ColumnListItem>
+            <Link
+                text="{Name}"
+                href="{ProductPicUrl}" />
+            <ObjectIdentifier
+                title="{ProductId}"
+                titleActive = "true"
+                titlePress="handleObjectIdentifierPress" />
+            <Link
+                text="{SupplierName}"
+                subtle="true"
+                press="handleLinkPress"/>
+            <Link
+                text="{Category}"
+                subtle="true"
+                press="handleLinkPress" />
+            <Link
+                text="picture"
+                subtle="true"
+                href="{ProductPicUrl}" />
+        </ColumnListItem>
+    </Table>
+                </VBox>
+            </Page>
+            <Page
+                id="detail2"
+                title="Detail 3 Page"
+                backgroundDesign= "Solid"
+                class="sapUiStdPage"
+                showNavButton="true"
+                navButtonText="Back"
+                navButtonPress=".onPressDetailBack">
+                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+                header="Cumulative Totals" subheader="Expenses" press="">
+        <TileContent unit="Unit" footer="Footer Text">
+            <NumericContent value="12" withMargin="false" />
+        </TileContent>
+    </GenericTile>
+            </Page>
+        </detailPages>
+        <detailPages>
+        <Page
+                id="empty1"
+                title="configuration"
+                backgroundDesign= "Solid"
+                class="sapUiStdPage">
+                
+              <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+              header="Cumulative Totals" subheader="Expenses" press="onPressNavToDetail4">
+        <TileContent unit="Unit" footer="Footer Text">
+            <NumericContent value="1762" icon="sap-icon://line-charts" withMargin="false" />
+        </TileContent>
+    </GenericTile>
+
+            </Page>
+            <Page
+                id="empty2"
+                title="configuration"
+                backgroundDesign= "Solid"
+                class="sapUiStdPage">
+           
+	<content>
+		
+		  <Label text="File Name">
+		  </Label>
+		<l:VerticalLayout>
+		 <u:FileUploader id="idfileUploader" width="50%"
+		    sameFilenameAllowed="false" buttonText="" fileType="CSV"
+		    placeholder="Choose a CSV file" style="Emphasized">
+		</u:FileUploader>
+		<Button text="Upload" press="onUpload"></Button>
+		</l:VerticalLayout>
+		
+
+		<Table id="idTable" items="{/}">
+		<items>
+		    <ColumnListItem>
+			<cells>
+			<Text text="{Sales Document}"></Text>
+			<Text type="Date"></Text>
+			<Text text="{Type}"></Text>
+			<Text text="{Sales Org}"></Text>
+			<Text text="{Category}"></Text>
+			</cells>
+		   </ColumnListItem>
+                </items>
+	        <columns>
+			<Column>
+			<Text text="Sales Document"></Text>
+			</Column>
+			<Column>
+			<Text text="Date"></Text>
+			</Column>
+			<Column>
+			<Text text="Type"></Text>
+			</Column>
+		        <Column>
+			<Text text="Sales Org"></Text>
+			</Column>
+			<Column>
+			<Text text="Category"></Text>
+			</Column>
+		</columns>
+		</Table>
+		</content>
+	
+	
+              
+
+            </Page>
+
+            </detailPages>
+        <masterPages>
+            <Page
+                id="master"
+                title="Master 1"
+                backgroundDesign= "List"
+                icon="sap-icon://action"
+                class="sapUiStdPage">
+                <List >
+                    <StandardListItem title="Home" type="Active" press=".onPressNavToDetail2" />
+                    <StandardListItem title="Products" type="Active" press=".onPressNavToDetail" />
+                     <StandardListItem title="Configuration" type="Active" press=".onPressNavToDetail3" />
+
+                </List>
+            </Page>
+            <Page
+                id="master2"
+                title="Master 2"
+                backgroundDesign= "List"
+                icon="sap-icon://action"
+                class="sapUiStdPage"
+                showNavButton="true"
+                navButtonPress=".onPressMasterBack">
+                <List itemPress=".onListItemPress">
+                    
+                </List>
+                
+            </Page>
+        </masterPages>
+    </SplitApp>
+</mvc:View>
